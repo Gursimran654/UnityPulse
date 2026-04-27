@@ -1,0 +1,11 @@
+# Root .gitignore
+node_modules/
+.env
+dist/
+*.db
+*.db-journal
+
+# Backend
+backend/node_modules/
+backend/.env
+backend/prisma/migrations/
