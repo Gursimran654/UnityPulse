@@ -10,8 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || 'unitypulse_secret';
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
+
+app.get('/', (req, res) => res.json({ status: 'UnityPulse API is running', version: '1.0.0' }));
+app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 // --- Haversine distance (km) ---
 function haversineDistance(lat1, lng1, lat2, lng2) {
